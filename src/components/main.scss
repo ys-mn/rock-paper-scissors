@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+$icon-size: 100vh/5;
+// $svg-size: 50px;
+#app,
+html,
+body {
+  height: 100%;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+body {
+  background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+$dark-text: hsl(229, 25%, 31%);
+$score-text: hsl(229, 64%, 46%);
+$header-outline: hsl(217, 16%, 45%);
+
+.game {
+  margin-top: 50px;
+  .result {
+    $icon-size: 200px;
+    width: 70vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    .show-res {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .title {
+        text-transform: uppercase;
+        color: white;
+        font-weight: 700;
+        font-size: $icon-size/4;
+        line-height: 100%;
+        letter-spacing: 2px;
+        margin: 0;
+      }
+      button {
+        border: none;
+        background-color: #fff;
+        border-radius: 5px;
+        // display: block;
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: $dark-text;
+        font-weight: 700;
+        font-size: 14px;
+        padding: 10px 15px;
+        margin: 10px;
+        line-height: 100%;
+        transition: all 0.5s ease;
+      }
+      button:hover {
+        cursor: pointer;
+        color: hsl(349, 71%, 52%);
+      }
+    }
+    .state {
+      cursor: default;
+    }
+    // .won {
+    //   .state {
+    //     box-shadow: 0 0 0 10px $header-outline;
+    //   }
+    // }
+    .user,
+    .house {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .title {
+        text-transform: uppercase;
+        color: white;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 2px;
+      }
+      .loader {
+        margin: 30px;
+        width: $icon-size;
+        height: $icon-size;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+          width: $icon-size/2;
+          height: $icon-size/2;
+        }
+      }
+    }
+  }
+  .states {
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  // .state-wrapper {
+  //   flex: 50%;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+  .state {
+    cursor: pointer;
+    margin: 30px;
+    width: $icon-size;
+    height: $icon-size;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $icon-size;
+    transition: all 0.5s ease;
+    &:hover {
+      background-color: darken($color: #fff, $amount: 5);
+    }
+    &.rock {
+      box-shadow: 0px 0px 0px $icon-size * 2/10 hsl(349, 71%, 52%),
+        0px 5px 0px $icon-size * 2/10
+          darken($color: hsl(349, 71%, 52%), $amount: 10),
+        inset 0px 5px 0px 0px darken($color: white, $amount: 10);
+    }
+    &.paper {
+      box-shadow: 0px 0px 0px $icon-size * 2/10 hsl(230, 89%, 62%),
+        0px 5px 0px $icon-size * 2/10
+          darken($color: hsl(230, 89%, 62%), $amount: 10),
+        inset 0px 5px 0px 0px darken($color: white, $amount: 10);
+    }
+    &.scissors {
+      box-shadow: 0px 0px 0px $icon-size * 2/10 hsl(39, 89%, 49%),
+        0px 5px 0px $icon-size * 2/10
+          darken($color: hsl(39, 89%, 49%), $amount: 10),
+        inset 0px 5px 0px 0px darken($color: white, $amount: 10);
+    }
+    img {
+      width: $icon-size/2;
+      height: $icon-size/2;
+    }
+  }
+}
+
+.header {
+  margin-top: 50px;
+  padding: 10px 15px;
+  width: 50vw;
+  // height: 120px;
+  border: 2px solid $header-outline;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .title {
+    margin: 10px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 100%;
+  }
+  .score-board {
+    background-color: #fff;
+    height: calc(100% - 10px);
+    // width: 100px;
+    padding: 5px 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .score-text {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: $score-text;
+      font-size: 16px;
+    }
+    .score-number {
+      margin: 0;
+      font-size: 46px;
+    }
+  }
+}
